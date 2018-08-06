@@ -96,9 +96,7 @@ class Nav extends Widget
         $label = $this->encodeLabels ? Html::encode($item['label']) : $item['label'];
         $options = ArrayHelper::getValue($item, 'options', []);
         $items = ArrayHelper::getValue($item, 'items');
-        if (!count($items)) {
-            $items = null;
-        }
+        $items=is_array($items)?count($items):null;
         $url = Url::to(ArrayHelper::getValue($item, 'url', false));
         $linkOptions = ArrayHelper::getValue($item, 'linkOptions', []);
         if (isset($item['active'])) {
